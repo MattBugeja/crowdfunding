@@ -10,41 +10,35 @@ h1 {
 }
 
 .text {
-  width: 90%;
-  position: relative;
-  /* z-index: 5; */
-  top: -50px;
-  /* width: 98%; */
-  height: auto;
-  /* border: black solid 1px; */
-  text-align: center;
-  padding: 0px 20px 30px 20px;
   background-color: white;
   border-radius: 15px;
+  height: auto;
   margin: 0 auto;
-
-  /* z-index: 2; */
+  padding: 0px 20px 30px 20px;
+  position: relative;
+  text-align: center;
+  top: -50px;
+  width: 90%;
 }
 
 .details {
-  padding: 25px 0px;
   color: hsl(0, 0%, 48%);
   font-weight: 500;
+  padding: 25px 0px;
 }
 
 .btnBookmarkRow {
+  align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
   width: 100%;
 }
 
 .logo {
   position: relative;
-  top: -30px;
   right: 15px;
-  /* background-color: blue; */
+  top: -30px;
 }
 
 .bookmarkIcon {

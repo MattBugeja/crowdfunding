@@ -1,15 +1,14 @@
 .btn {
   background-color: hsl(176, 50%, 47%);
-  font-weight: 700;
-  font-size: 1rem;
-
+  border-radius: 32px;
   border: none;
   color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 4px 2px;
   padding: 20px 40px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 32px;
 }

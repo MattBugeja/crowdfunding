@@ -1,13 +1,13 @@
 .container {
-  position: absolute;
-  top: -150px;
-  right: 20px;
-  height: auto;
-  width: 90%;
-  z-index: 50;
   background-color: white;
   border-radius: 10px;
+  height: auto;
   padding: 40px 20px;
+  position: absolute;
+  right: 20px;
+  top: -150px;
+  width: 90%;
+  z-index: 50;
 }
 
 .rows {
@@ -17,16 +17,16 @@
 }
 
 .title {
+  color: black;
   font-size: 1rem;
   font-weight: 700;
-  color: black;
   text-align: left;
 }
 
 .intro {
   line-height: 1.5;
-  margin-top: 32px;
   margin-bottom: 32px;
+  margin-top: 32px;
   text-align: left;
 }
 

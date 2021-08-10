@@ -1,13 +1,10 @@
 .heroImage {
-  /* background-color: teal; */
-  /* height: 100px; */
-
   width: 100%;
 }
 
 .container {
-  position: relative;
   background-color: whitesmoke;
   height: 100vh;
+  position: relative;
   z-index: 1;
 }
