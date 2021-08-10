@@ -1,0 +1,37 @@
+.container {
+  border: solid 1px hsla(0, 0%, 48%, 0.158);
+  border-radius: 5px;
+  margin: 0 auto;
+  padding: 24px;
+  text-align: left;
+  width: 90%;
+}
+
+.title {
+  color: black;
+  font-weight: 700;
+  width: 100%;
+  text-align: left;
+}
+.pledge {
+  color: hsl(176, 50%, 47%);
+  font-weight: 700;
+  margin-top: 8px;
+}
+.info {
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  text-align: left;
+}
+.amount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 1rem;
+}
+
+.left {
+  color: grey;
+  font-size: 1rem;
+}

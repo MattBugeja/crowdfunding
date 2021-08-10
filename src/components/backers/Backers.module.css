@@ -1,0 +1,11 @@
+.container {
+  text-align: center;
+  position: relative;
+  padding: 20px;
+  z-index: 10;
+}
+
+p {
+  color: hsl(0, 0%, 48%);
+  padding-top: 10px;
+}
