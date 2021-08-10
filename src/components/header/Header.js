@@ -3,8 +3,7 @@ import { useState } from "react";
 import { ReactComponent as CloseMenu } from "./assets/icon-close-menu.svg";
 import { ReactComponent as MenuIcon } from "./assets/icon-hamburger.svg";
 import { ReactComponent as Logo } from "./assets/logo.svg";
-import Overlay from "../overlay/Overlay";
-
+import OverlayMenu from "../overlay/OverlayMenu";
 import "./Header.css";
 
 function Header() {
@@ -38,7 +37,7 @@ function Header() {
         ) : (
           <MenuIcon className="menu-icon" />
         )}
-        {click && <Overlay />}
+        {click && <OverlayMenu />}
       </div>
     </header>
   );

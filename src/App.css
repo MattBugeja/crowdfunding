@@ -1,7 +1,41 @@
-.background {
-  width: 100%;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: whitesmoke;
+}
+
+.test2 {
+  position: relative;
+  width: 90%;
   height: auto;
-  /* background-repeat: no-repeat; */
-  position: absolute;
-  z-index: 1;
+  /* background-color: blue; */
+  display: flex;
+  flex-direction: column;
+  top: -32px;
+  row-gap: 16px;
+  margin: 0 auto;
+}
+
+.box {
+  width: auto;
+  height: 100px;
+  background-color: white;
+  height: auto;
+  border-radius: 10px;
+  /* border: 1px black solid; */
+}
+
+hr {
+  width: 30%;
+  margin: auto;
+  border: none;
+  border-top: 1px solid hsl(0, 0%, 48%);
+}
+
+.box1 {
+  background-color: white;
+  height: auto;
+  border-radius: 10px;
 }

@@ -1,12 +1,12 @@
 import React from "react";
 import heroImage from "./assets/image-hero-mobile.jpg";
+import classes from "./HeroImg.module.css";
 
-import "./HeroImg.css";
 function HeroImg() {
   return (
-    <div className="container">
-      <img className="heroImage" src={heroImage} alt=""></img>
-    </div>
+    // <div className={classes.container}>
+    <img className={classes.heroImage} src={heroImage} alt=""></img>
+    // </div>
   );
 }
 

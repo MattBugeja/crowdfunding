@@ -9,19 +9,11 @@ h1 {
   margin: 0 15px;
 }
 
-.container {
+.text {
   width: 90%;
   position: relative;
-  background-color: transparent;
-  margin: 0 auto;
-  /* background-color: white; */
-  z-index: 2;
-}
-
-.text {
-  position: relative;
-  z-index: 10;
-  top: 230px;
+  /* z-index: 5; */
+  top: -50px;
   /* width: 98%; */
   height: auto;
   /* border: black solid 1px; */
@@ -29,6 +21,9 @@ h1 {
   padding: 0px 20px 30px 20px;
   background-color: white;
   border-radius: 15px;
+  margin: 0 auto;
+
+  /* z-index: 2; */
 }
 
 .details {
@@ -49,4 +44,9 @@ h1 {
   position: relative;
   top: -30px;
   right: 15px;
+  /* background-color: blue; */
+}
+
+.bookmarkIcon {
+  color: blue;
 }
