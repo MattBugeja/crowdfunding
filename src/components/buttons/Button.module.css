@@ -12,3 +12,8 @@
   text-align: center;
   text-decoration: none;
 }
+
+.btnSmall {
+  padding: 12px 20px;
+  font-size: 0.8rem;
+}

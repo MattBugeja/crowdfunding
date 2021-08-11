@@ -1,5 +1,9 @@
-form {
-  float: left;
-  margin-right: 10px;
+.btn {
+  /* float: left; */
+  /* margin-top: 5px; */
+  /* margin-right: 10px; */
   width: fit-content;
+  /* position: relative;
+  top: 20px; */
+  transform: scale(2);
 }

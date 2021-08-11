@@ -4,6 +4,14 @@ import classes from "./Backthisproject.module.css";
 import Editions from "../editions/editions";
 import { ReactComponent as CloseIcon } from "./assets/icon-close-modal.svg";
 function BackThisProject(props) {
+  const [count, setCount] = useState(0);
+  const increaseCount = () => setCount(count + 1);
+
+  // <div>
+  //   <p>{`The current count is ${count}`}</p>
+  //   <Child increaseCount={increaseCount} />
+  // </div>
+
   return (
     <div className={classes.container}>
       <div className={classes.title}>
@@ -20,11 +28,11 @@ function BackThisProject(props) {
         <div>
           <Editions
             title={"Pledge with no reward"}
-            pledge={""}
             info={
               "Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email."
             }
             modalMode={true}
+            increaseCount={increaseCount}
           />
         </div>
         <div>

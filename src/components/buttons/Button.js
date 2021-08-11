@@ -1,9 +1,17 @@
-import classes from "./Button.module.css";
 import React from "react";
+import { useState } from "react";
+import classes from "./Button.module.css";
 
 function Button(props) {
+  const [smallButton, setSmallButton] = useState(props.smallButton);
+
   return (
-    <button className={classes.btn} onClick={props.click}>
+    <button
+      className={
+        smallButton ? `${classes.btn} ${classes.btnSmall} ` : `${classes.btn}`
+      }
+      onClick={props.click}
+    >
       {props.text}
     </button>
   );
