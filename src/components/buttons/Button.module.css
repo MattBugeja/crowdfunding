@@ -17,3 +17,11 @@
   padding: 12px 20px;
   font-size: 0.8rem;
 }
+/* 
+button:active {
+  outline: none;
+} */
+
+button:hover {
+  background-color: hsl(176, 72%, 28%);
+}

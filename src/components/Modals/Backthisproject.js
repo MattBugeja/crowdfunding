@@ -1,22 +1,28 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import classes from "./Backthisproject.module.css";
 import Editions from "../editions/editions";
+import Radio from "../buttons/Radio";
 import { ReactComponent as CloseIcon } from "./assets/icon-close-modal.svg";
+import OverlayModal from "../overlay/OverlayModal";
 function BackThisProject(props) {
-  const [count, setCount] = useState(0);
-  const increaseCount = () => setCount(count + 1);
+  // const [reload, setReload] = useState(true);
+  const [id, setId] = useState("123");
 
-  // <div>
-  //   <p>{`The current count is ${count}`}</p>
-  //   <Child increaseCount={increaseCount} />
-  // </div>
+  function closeBackThisProject() {
+    props.close();
+  }
+
+  function thanks() {
+    props.close();
+    props.thanks();
+  }
 
   return (
     <div className={classes.container}>
       <div className={classes.title}>
         Back this project{" "}
-        <CloseIcon className={classes.close} onClick={props.close} />
+        <CloseIcon className={classes.close} onClick={closeBackThisProject} />
       </div>
 
       <div className={classes.intro}>
@@ -25,6 +31,8 @@ function BackThisProject(props) {
       </div>
 
       <div className={classes.rows}>
+        {/* <form> */}
+
         <div>
           <Editions
             title={"Pledge with no reward"}
@@ -32,9 +40,11 @@ function BackThisProject(props) {
               "Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email."
             }
             modalMode={true}
-            increaseCount={increaseCount}
+            // pledged={selectedPledge}
+            clicked={thanks}
           />
         </div>
+
         <div>
           <Editions
             title={"Bamboo Stand"}
@@ -45,6 +55,8 @@ function BackThisProject(props) {
             startcount={110}
             modalMode={true}
             text={"left"}
+            // pledged={selectedPledge}
+            // click={removeBorder}
           />
         </div>
         <div>
@@ -54,7 +66,7 @@ function BackThisProject(props) {
             info={
               "You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included."
             }
-            startcount={64}
+            startcount={0}
             modalMode={true}
             text={"left"}
           />
@@ -71,6 +83,7 @@ function BackThisProject(props) {
             text={"left"}
           />
         </div>
+        {/* </form> */}
       </div>
     </div>
   );

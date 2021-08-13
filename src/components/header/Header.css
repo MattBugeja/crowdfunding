@@ -36,6 +36,7 @@ a {
   position: absolute;
   top: 80px;
   width: 100%;
+  margin-left: 20px;
 }
 .nav-options.active {
   align-content: center;
@@ -48,6 +49,7 @@ a {
   text-align: left;
   width: 90%;
   z-index: 6;
+  /* margin: 0 auto; */
 }
 
 .menu-icon {
@@ -58,10 +60,12 @@ a {
   align-items: left;
   border-bottom: black solid 1px;
   display: flex;
-  height: 10vw;
+  /* height: 14vw; */
   justify-content: left;
   padding: 1rem 1rem;
   text-decoration: none;
+  /* margin: 0 auto; */
+  height: 60px;
 }
 
 .mobile-menu {

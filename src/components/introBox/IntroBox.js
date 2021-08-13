@@ -8,12 +8,14 @@ import logo from "./assets/logo-mastercraft.svg";
 import Button from "../buttons/Button";
 import OverlayModal from "../overlay/OverlayModal";
 import BackThisProject from "../Modals/Backthisproject";
+import Thanks from "../Modals/Thanks";
 
 function IntroBox() {
   // const bookmarks = {bookmarkIcon, clickedBookmarkIcon};
 
   const [isBookmarked, setIsBookedmarked] = useState(bookmarkIcon);
   const [backingModal, setIsBackingModal] = useState(false);
+  const [submittedPledge, setSubmittedPledge] = useState(false);
 
   function bookmarked() {
     isBookmarked === clickedBookmarkIcon
@@ -25,8 +27,18 @@ function IntroBox() {
     backingModal ? setIsBackingModal(false) : setIsBackingModal(true);
   }
 
+  function thanksHandler() {
+    // changeBackingModal()
+    submittedPledge ? setSubmittedPledge(false) : setSubmittedPledge(true);
+  }
+
+  function test() {
+    console.log("works");
+  }
+
   return (
     <div className={classes.text}>
+      {/* <Thanks /> */}
       <img className={classes.logo} src={logo} alt=""></img>
       <h1 className={classes.h1}>Mastercraft Bamboo Monitor Riser </h1>{" "}
       <div className={classes.details}>
@@ -37,8 +49,11 @@ function IntroBox() {
           <Button text={"Back this Project"} click={changeBackingModal} />
         </div>
         {backingModal && <OverlayModal />}
-        {backingModal && <BackThisProject close={changeBackingModal} />}
-
+        {backingModal && (
+          <BackThisProject close={changeBackingModal} thanks={thanksHandler} />
+        )}
+        {submittedPledge && <OverlayModal />}
+        {submittedPledge && <Thanks closeIt={thanksHandler} />}
         <div>
           <img
             className={bookmarkIcon}

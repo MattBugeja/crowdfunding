@@ -8,11 +8,20 @@ function Radio(props) {
       className={classes.btn}
       type="radio"
       name="radio"
-      // value="on"
-      // checked={true}
+      value={props.setValue}
+      checked={props.checked}
       onClick={props.click}
       onChange={props.change}
     />
+
+    // <input
+    //   className={classes.btn}
+    //   type="checkbox"
+    //   name="checkbox"
+    //   value={props.setValue}
+    //   onClick={props.click}
+    //   onChange={props.change}
+    // ></input>
   );
 }
 

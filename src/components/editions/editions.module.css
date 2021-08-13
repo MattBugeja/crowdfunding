@@ -40,21 +40,11 @@
   margin-left: 20px;
 }
 
-.row {
+/* .row {
   display: flex;
   flex-direction: row;
   align-items: center;
-}
-
-.enterPledge {
-  height: 100%;
-  width: 100%;
-  border: none;
-  text-align: center;
-  padding-top: 25px;
-  padding-bottom: 20px;
-  border-top: solid 1px hsla(0, 0%, 48%, 0.158);
-}
+} */
 
 .row {
   width: 100%;
@@ -69,14 +59,61 @@
   height: 40px;
   width: 40%;
   border: 1px solid hsla(0, 0%, 48%, 0.26);
+  font-size: 16px;
+  padding: 15px;
+  position: relative;
+  /* z-index: 10; */
 }
 
 .wrapper {
   border-radius: 5px;
   border: solid 1px hsla(0, 0%, 48%, 0.158);
+  position: relative;
+  /* z-index: 65; */
 }
 
-.active {
+.active:hover {
   border: solid 3px hsl(176, 50%, 47%);
-  /* border-radius: 0; */
+}
+
+.btn {
+  width: fit-content;
+
+  transform: scale(2);
+}
+
+.enterPledge {
+  /* display: none; */
+  height: 100%;
+  width: 100%;
+  border: none;
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 20px;
+  border-top: solid 1px hsla(0, 0%, 48%, 0.158);
+}
+
+.circle {
+  width: 16px;
+  height: 16px;
+  border: 1px solid hsla(0, 0%, 48%, 0.26);
+  border-radius: 50px;
+  transform: scale(2);
+}
+
+.innerCircle {
+  width: 15px;
+  height: 15px;
+
+  position: relative;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.329);
+  height: 10%;
+  /* left: 0; */
+  position: relative;
+  /* top: 0; */
+  width: 100%;
+  z-index: 100;
 }

@@ -1,52 +1,30 @@
 import React from "react";
-import { useState } from "react";
+import reactDom from "react-dom";
+import { useState, useEffect } from "react";
 import classes from "./editions.module.css";
 import Button from "../buttons/Button";
 import Radio from "../buttons/Radio";
-import BackThisProject from "../Modals/Backthisproject";
+import Item from "../testStuff/Item";
+import OverlayNoneLeft from "../overlay/OverlayNoneLeft.js";
 
-function Editions(props, { increaseCount }) {
+function Editions(props) {
+  const [selectedPledge, setSelectedPledge] = useState(false);
   const [count, setCount] = useState(props.startcount);
   const [modalMode, setModalMode] = useState(props.modalMode);
-  const [selectedPledge, setSelectedPledge] = useState(props.pledged);
-  const [restart, setRestart] = useState(false);
-
-  function pledgeHandler() {
-    // selectedPledge ? setSelectedPledge(false) : setSelectedPledge(true);
-    setSelectedPledge(true);
-  }
-  function notPledge() {
-    setSelectedPledge(false);
-  }
-
-  function reload() {
-    setRestart(true);
-  }
-
-  // function turnOffPledge() {}
+  const [id, setId] = useState("123");
 
   return (
     <div
       className={
-        selectedPledge
-          ? ` ${classes.wrapper} ${classes.active}`
-          : `${classes.wrapper}`
+        count === 0
+          ? `${classes.wrapper} ${classes.overlay}`
+          : `${classes.wrapper} ${classes.active}`
       }
     >
       <div className={classes.container}>
-        <div className={classes.row}>
-          {modalMode && (
-            <div>
-              <Radio click={props.change} change={pledgeHandler} />
-            </div>
-          )}
-
-          {/* {restart && <BackThisProject />} */}
-
-          <div className={classes.titlePledgeContainer}>
-            <div className={classes.title}> {props.title}</div>
-            <div className={classes.pledge}>{props.pledge}</div>
-          </div>
+        <div className={classes.titlePledgeContainer}>
+          <div className={classes.title}> {props.title}</div>
+          <div className={classes.pledge}>{props.pledge}</div>
         </div>
         <div className={classes.info}>{props.info}</div>
         <div className={classes.amount}>
@@ -54,13 +32,23 @@ function Editions(props, { increaseCount }) {
         </div>
         {!modalMode && <Button text={"Select Reward"} />}
       </div>
-      <div className={classes.enterPledge}>
-        Enter your pledge
-        <div className={classes.row}>
-          <input className={classes.pledgeAmount} type="number"></input>
-          <Button smallButton={true} className={classes.btn} text="Continue" />
+
+      {/* submit pledge area */}
+
+      {(props.title === "Pledge with no reward" || count > 0) && modalMode && (
+        <div className={classes.enterPledge}>
+          Enter your pledge
+          <div className={classes.row}>
+            <input className={classes.pledgeAmount} type="number"></input>
+            <Button
+              smallButton={true}
+              className={classes.btn}
+              text="Continue"
+              click={props.clicked}
+            />
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
