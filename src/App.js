@@ -6,17 +6,34 @@ import IntroBox from "./components/introBox/IntroBox";
 import ProgressBar from "./components/progressBar/ProgressBar";
 import About from "./components/about/About";
 import BackThisProject from "./components/Modals/Backthisproject";
+import { useState, useContext, useEffect } from "react";
 
 function App() {
+  const [bambooCount, setBambooCount] = useState(10);
+  const [blackCount, setBlackCount] = useState(10);
+  const [seCount, setSeCount] = useState(10);
+
+  function click() {
+    setBambooCount(bambooCount - 1);
+  }
+
+  console.log(bambooCount);
+
   return (
     <div>
       <Header />
 
       <HeroImg />
 
-      {/* <BackThisProject /> */}
-
-      <IntroBox />
+      <IntroBox
+        bambooCount={bambooCount}
+        blackCount={blackCount}
+        seCount={seCount}
+        reduceCount={click}
+        bambooType="bamboo"
+        blackType="black"
+        seType="se"
+      />
 
       <div className="test2">
         <div className="box box1">
@@ -28,7 +45,11 @@ function App() {
           <ProgressBar />
         </div>
         <div className="box box2">
-          <About />
+          <About
+            bambooCount={bambooCount}
+            blackCount={blackCount}
+            seCount={seCount}
+          />
         </div>
       </div>
     </div>

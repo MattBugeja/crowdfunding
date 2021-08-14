@@ -10,7 +10,7 @@ import OverlayModal from "../overlay/OverlayModal";
 import BackThisProject from "../Modals/Backthisproject";
 import Thanks from "../Modals/Thanks";
 
-function IntroBox() {
+function IntroBox(props) {
   // const bookmarks = {bookmarkIcon, clickedBookmarkIcon};
 
   const [isBookmarked, setIsBookedmarked] = useState(bookmarkIcon);
@@ -50,7 +50,14 @@ function IntroBox() {
         </div>
         {backingModal && <OverlayModal />}
         {backingModal && (
-          <BackThisProject close={changeBackingModal} thanks={thanksHandler} />
+          <BackThisProject
+            close={changeBackingModal}
+            thanks={thanksHandler}
+            bambooCount={props.bambooCount}
+            blackCount={props.blackCount}
+            seCount={props.seCount}
+            reduceCount={props.reduceCount}
+          />
         )}
         {submittedPledge && <OverlayModal />}
         {submittedPledge && <Thanks closeIt={thanksHandler} />}

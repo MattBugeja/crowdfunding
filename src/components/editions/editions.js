@@ -8,8 +8,12 @@ import Item from "../testStuff/Item";
 import OverlayNoneLeft from "../overlay/OverlayNoneLeft.js";
 
 function Editions(props) {
+  
   const [selectedPledge, setSelectedPledge] = useState(false);
-  const [count, setCount] = useState(props.startcount);
+  // const [count, setCount] = useState(props.startcount);
+
+  const count = props.startcount;
+
   const [modalMode, setModalMode] = useState(props.modalMode);
   const [id, setId] = useState("123");
 
@@ -41,6 +45,7 @@ function Editions(props) {
           <div className={classes.row}>
             <input className={classes.pledgeAmount} type="number"></input>
             <Button
+              type={props.type}
               smallButton={true}
               className={classes.btn}
               text="Continue"

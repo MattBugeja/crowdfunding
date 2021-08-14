@@ -5,6 +5,7 @@ import Editions from "../editions/editions";
 import Radio from "../buttons/Radio";
 import { ReactComponent as CloseIcon } from "./assets/icon-close-modal.svg";
 import OverlayModal from "../overlay/OverlayModal";
+import { useRef } from "react";
 function BackThisProject(props) {
   // const [reload, setReload] = useState(true);
   const [id, setId] = useState("123");
@@ -14,8 +15,10 @@ function BackThisProject(props) {
   }
 
   function thanks() {
+    props.reduceCount();
     props.close();
     props.thanks();
+    console.log(Editions.title);
   }
 
   return (
@@ -52,11 +55,11 @@ function BackThisProject(props) {
             info={
               "You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list."
             }
-            startcount={110}
+            startcount={props.bambooCount}
             modalMode={true}
             text={"left"}
-            // pledged={selectedPledge}
-            // click={removeBorder}
+            type={props.bambooType}
+            clicked={thanks}
           />
         </div>
         <div>
@@ -66,9 +69,11 @@ function BackThisProject(props) {
             info={
               "You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included."
             }
-            startcount={0}
+            startcount={props.blackCount}
             modalMode={true}
             text={"left"}
+            clicked={thanks}
+            type={props.blackType}
           />
         </div>
         <div>
@@ -78,9 +83,11 @@ function BackThisProject(props) {
             info={
               "You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included."
             }
-            startcount={0}
+            startcount={props.seCount}
             modalMode={true}
             text={"left"}
+            clicked={thanks}
+            type={props.seType}
           />
         </div>
         {/* </form> */}

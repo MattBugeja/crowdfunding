@@ -24,7 +24,7 @@ function About(props) {
             info={
               "You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list."
             }
-            startcount={110}
+            startcount={props.bambooCount}
             modalMode={false}
             text={"left"}
           />
@@ -36,7 +36,7 @@ function About(props) {
             info={
               "You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included."
             }
-            startcount={64}
+            startcount={props.blackCount}
             modalMode={false}
             text={"left"}
           />
@@ -48,7 +48,7 @@ function About(props) {
             info={
               "You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included."
             }
-            startcount={10}
+            startcount={props.seCount}
             modalMode={false}
             text={"left"}
           />
