@@ -5,7 +5,7 @@ function ProgressBar(props) {
   return (
     <div>
       <div className={classes.container}>
-        <div className={classes.progressMarker}></div>
+        <div className={classes.progressMarker} style ={{width : props.amount+"%"}}></div>
       </div>
     </div>
   );

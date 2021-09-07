@@ -9,13 +9,13 @@ import Button from "../buttons/Button";
 import OverlayModal from "../overlay/OverlayModal";
 import BackThisProject from "../Modals/Backthisproject";
 import Thanks from "../Modals/Thanks";
+import NoAmount from "../Modals/NoAmount";
 
 function IntroBox(props) {
-  // const bookmarks = {bookmarkIcon, clickedBookmarkIcon};
-
   const [isBookmarked, setIsBookedmarked] = useState(bookmarkIcon);
   const [backingModal, setIsBackingModal] = useState(false);
-  const [submittedPledge, setSubmittedPledge] = useState(false);
+  const [pledgeSubmitted, setPledgeSubmitted] = useState(false);
+  const [enoughPledged, setEnoughPledged] = useState(true);
 
   function bookmarked() {
     isBookmarked === clickedBookmarkIcon
@@ -25,20 +25,26 @@ function IntroBox(props) {
 
   function changeBackingModal() {
     backingModal ? setIsBackingModal(false) : setIsBackingModal(true);
+    console.log("not enough 1");
   }
 
   function thanksHandler() {
-    // changeBackingModal()
-    submittedPledge ? setSubmittedPledge(false) : setSubmittedPledge(true);
+    pledgeSubmitted ? setPledgeSubmitted(false) : setPledgeSubmitted(true);
   }
 
-  function test() {
-    console.log("works");
+  function enoughWasPledged() {
+    setEnoughPledged(true);
+    props.pledgeSubmitted();
+  }
+
+  function notEnoughPledged() {
+    console.log("not enough 2");
+
+    setEnoughPledged(false);
   }
 
   return (
     <div className={classes.text}>
-      {/* <Thanks /> */}
       <img className={classes.logo} src={logo} alt=""></img>
       <h1 className={classes.h1}>Mastercraft Bamboo Monitor Riser </h1>{" "}
       <div className={classes.details}>
@@ -53,14 +59,28 @@ function IntroBox(props) {
           <BackThisProject
             close={changeBackingModal}
             thanks={thanksHandler}
+            notEnoughPledged={notEnoughPledged}
+            enoughWasPledged={enoughWasPledged}
             bambooCount={props.bambooCount}
             blackCount={props.blackCount}
             seCount={props.seCount}
             reduceCount={props.reduceCount}
+            noRewardMinAmt={props.noRewardMinAmt}
+            bambooMinAmt={props.bambooMinAmt}
+            blackMinAmt={props.blackMinAmt}
+            seMinAmt={props.seMinAmt}
+            pledgeValue={props.pledgedValue}
+            setPledgeValue={props.setPledgeValue}
+            setEditionName={props.setEditionName}
           />
         )}
-        {submittedPledge && <OverlayModal />}
-        {submittedPledge && <Thanks closeIt={thanksHandler} />}
+
+        {pledgeSubmitted && <OverlayModal />}
+        {pledgeSubmitted && <Thanks closeIt={thanksHandler} />}
+        {pledgeSubmitted && !enoughPledged && (
+          <NoAmount closeIt={thanksHandler} />
+        )}
+
         <div>
           <img
             className={bookmarkIcon}

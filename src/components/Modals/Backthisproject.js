@@ -1,24 +1,39 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import classes from "./Backthisproject.module.css";
 import Editions from "../editions/editions";
-import Radio from "../buttons/Radio";
+
 import { ReactComponent as CloseIcon } from "./assets/icon-close-modal.svg";
-import OverlayModal from "../overlay/OverlayModal";
-import { useRef } from "react";
+
 function BackThisProject(props) {
-  // const [reload, setReload] = useState(true);
-  const [id, setId] = useState("123");
+
+  const [tempPledgeValue, setTempPledgeValue] = useState(0);
+
 
   function closeBackThisProject() {
     props.close();
   }
 
-  function thanks() {
+  function thanksWithReward() {
+
+    props.setPledgeValue(tempPledgeValue);
+    props.enoughWasPledged();
     props.reduceCount();
     props.close();
     props.thanks();
-    console.log(Editions.title);
+  }
+
+  function thanksNoReward() {
+    props.setPledgeValue(tempPledgeValue);
+    props.enoughWasPledged();
+    props.close();
+    props.thanks();
+  }
+
+  function notEnoughPledged(e) {
+    props.close();
+    props.notEnoughPledged();
+    props.thanks();
   }
 
   return (
@@ -34,63 +49,98 @@ function BackThisProject(props) {
       </div>
 
       <div className={classes.rows}>
-        {/* <form> */}
-
         <div>
           <Editions
+          
             title={"Pledge with no reward"}
+            id = "noReward"
+            setEditionName = {props.setEditionName}
             info={
               "Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email."
             }
+          
+            editionMinAmount={props.noRewardMinAmt}
+            setTempPledgeValue={setTempPledgeValue}
             modalMode={true}
-            // pledged={selectedPledge}
-            clicked={thanks}
+            submit={
+              props.noRewardMinAmt < tempPledgeValue
+                ? thanksNoReward
+                : notEnoughPledged
+            }
+            
           />
+
         </div>
 
         <div>
-          <Editions
+            <Editions
             title={"Bamboo Stand"}
-            pledge={"Pledge $25 or more"}
+            id = {"bamboo"}
+            setEditionName = {props.setEditionName}
+            editionMinAmount={props.bambooMinAmt}
             info={
               "You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list."
             }
+        
             startcount={props.bambooCount}
             modalMode={true}
             text={"left"}
             type={props.bambooType}
-            clicked={thanks}
+            setTempPledgeValue={setTempPledgeValue}
+            submit={
+              props.bambooMinAmt < tempPledgeValue
+                ? thanksWithReward
+                : notEnoughPledged
+            }
+            
           />
         </div>
         <div>
           <Editions
             title={"Black Edition Stand"}
-            pledge={"Pledge $75 or more"}
+            id = {"black"}
+            setEditionName = {props.setEditionName}
+           
+            editionMinAmount={props.blackMinAmt}
             info={
               "You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included."
             }
+           
             startcount={props.blackCount}
+            s
             modalMode={true}
             text={"left"}
-            clicked={thanks}
+            submit={
+              props.blackMinAmt < tempPledgeValue
+                ? thanksWithReward
+                : notEnoughPledged
+            }
+            setTempPledgeValue={setTempPledgeValue}
             type={props.blackType}
           />
         </div>
         <div>
           <Editions
             title={"Mahogany Special Edition"}
-            pledge={"Pledge $200 or more"}
+            setEditionName = {props.setEditionName}
+            id="se"
+            editionMinAmount={props.seMinAmt}
             info={
               "You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included."
             }
+          
             startcount={props.seCount}
             modalMode={true}
             text={"left"}
-            clicked={thanks}
+            submit={
+              props.seMinAmt < tempPledgeValue
+                ? thanksWithReward
+                : notEnoughPledged
+            }
+            setTempPledgeValue={setTempPledgeValue}
             type={props.seType}
           />
         </div>
-        {/* </form> */}
       </div>
     </div>
   );

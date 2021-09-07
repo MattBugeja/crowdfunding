@@ -1,21 +1,25 @@
 import React from "react";
-import reactDom from "react-dom";
-import { useState, useEffect } from "react";
+
+import { useState, useRef } from "react";
 import classes from "./editions.module.css";
 import Button from "../buttons/Button";
-import Radio from "../buttons/Radio";
-import Item from "../testStuff/Item";
-import OverlayNoneLeft from "../overlay/OverlayNoneLeft.js";
+
 
 function Editions(props) {
-  
-  const [selectedPledge, setSelectedPledge] = useState(false);
-  // const [count, setCount] = useState(props.startcount);
+
+  const idRef = useRef(props.id)
+
 
   const count = props.startcount;
+  const [modalMode] = useState(props.modalMode);
+  const minAmount = props.editionMinAmount
+ 
+  function setEditionID(){
+    props.setEditionName(idRef.current)
 
-  const [modalMode, setModalMode] = useState(props.modalMode);
-  const [id, setId] = useState("123");
+    // console.log(idRef.current)
+  
+  }
 
   return (
     <div
@@ -24,11 +28,11 @@ function Editions(props) {
           ? `${classes.wrapper} ${classes.overlay}`
           : `${classes.wrapper} ${classes.active}`
       }
-    >
+          >
       <div className={classes.container}>
         <div className={classes.titlePledgeContainer}>
-          <div className={classes.title}> {props.title}</div>
-          <div className={classes.pledge}>{props.pledge}</div>
+          <div className={classes.title} > {props.title}</div>
+          <div className={classes.pledge}>Pledge ${minAmount} or more</div>
         </div>
         <div className={classes.info}>{props.info}</div>
         <div className={classes.amount}>
@@ -40,21 +44,30 @@ function Editions(props) {
       {/* submit pledge area */}
 
       {(props.title === "Pledge with no reward" || count > 0) && modalMode && (
-        <div className={classes.enterPledge}>
+      
+       <div className={classes.enterPledge}>
+       
           Enter your pledge
           <div className={classes.row}>
-            <input className={classes.pledgeAmount} type="number"></input>
-            <Button
+
+            <form onSubmit={props.submit}>
+
+            <input className={classes.pledgeAmount} value = {props.pledgeValue} 
+            onInput={e=> props.setTempPledgeValue(e.target.value)} type="number"></input>
+     
+              <Button
               type={props.type}
               smallButton={true}
               className={classes.btn}
-              text="Continue"
-              click={props.clicked}
+              click = {setEditionID}
+              text="Continue"     
             />
+            </form>
           </div>
         </div>
       )}
     </div>
+   
   );
 }
 

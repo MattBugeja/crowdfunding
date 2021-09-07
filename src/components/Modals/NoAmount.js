@@ -3,15 +3,17 @@ import classes from "./Thanks.module.css";
 import { ReactComponent as SuccessIcon } from "./assets/icon-check.svg";
 import Button from "../buttons/Button";
 
-function Thanks(props) {
+function NoAmount(props) {
   return (
     <div className={classes.container}>
       <SuccessIcon />
-      <div className={classes.title}> Thanks for your support!</div>
+      <div className={classes.title}> That's Odd</div>
       <div className={classes.msg}>
-        Your pledge brings us one step closer to sharing Mastercraft Bamboo
-        Monitor Riser worldwide. You will get an email once our campaign is
-        completed.
+        Thank you for helping us get one step closer to sharing Mastercraft Bamboo
+        Monitor Riser worldwide. 
+        
+        Unfortunately it seems your pledge wasn't captured correctly. Please try again.
+        
       </div>
 
       <Button smallButton="true" text="Got it!" click={props.closeIt} />
@@ -19,4 +21,4 @@ function Thanks(props) {
   );
 }
 
-export default Thanks;
+export default NoAmount;
