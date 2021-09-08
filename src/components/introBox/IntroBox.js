@@ -65,13 +65,13 @@ function IntroBox(props) {
             blackCount={props.blackCount}
             seCount={props.seCount}
             reduceCount={props.reduceCount}
-            noRewardMinAmt={props.noRewardMinAmt}
-            bambooMinAmt={props.bambooMinAmt}
-            blackMinAmt={props.blackMinAmt}
-            seMinAmt={props.seMinAmt}
+            // noRewardMinAmt={props.noRewardMinAmt}
+            // bambooMinAmt={props.bambooMinAmt}
+            // blackMinAmt={props.blackMinAmt}
+            // seMinAmt={props.seMinAmt}
             pledgeValue={props.pledgedValue}
             setPledgeValue={props.setPledgeValue}
-            setEditionName={props.setEditionName}
+            setEditionID={props.setEditionID}
           />
         )}
 

@@ -1,21 +1,22 @@
 import React from "react";
-import { useState} from "react";
+import { useState } from "react";
 import classes from "./Backthisproject.module.css";
 import Editions from "../editions/editions";
+// import editionsData from "../editions/editionsData";
 
 import { ReactComponent as CloseIcon } from "./assets/icon-close-modal.svg";
+import editionsData from "../editions/editionsData";
 
 function BackThisProject(props) {
+  const editions = ["bamboo", "black", "specialEdition"];
 
   const [tempPledgeValue, setTempPledgeValue] = useState(0);
-
 
   function closeBackThisProject() {
     props.close();
   }
 
   function thanksWithReward() {
-
     props.setPledgeValue(tempPledgeValue);
     props.enoughWasPledged();
     props.reduceCount();
@@ -36,6 +37,8 @@ function BackThisProject(props) {
     props.thanks();
   }
 
+  const editionsDataTest = editionsData.data;
+
   return (
     <div className={classes.container}>
       <div className={classes.title}>
@@ -49,21 +52,23 @@ function BackThisProject(props) {
       </div>
 
       <div className={classes.rows}>
-        <div>
+
+      <div>
           <Editions
-          
+
+         
             title={"Pledge with no reward"}
             id = "noReward"
-            setEditionName = {props.setEditionName}
+            setEditionID = {props.setEditionID}
             info={
               "Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email."
             }
           
-            editionMinAmount={props.noRewardMinAmt}
+           
             setTempPledgeValue={setTempPledgeValue}
             modalMode={true}
             submit={
-              props.noRewardMinAmt < tempPledgeValue
+              1 < tempPledgeValue
                 ? thanksNoReward
                 : notEnoughPledged
             }
@@ -72,12 +77,43 @@ function BackThisProject(props) {
 
         </div>
 
+
+
+        {editions.map((edition) => {
+          return (
+            
+            <Editions
+              key={editionsDataTest[edition].id}
+              title={editionsDataTest[edition].title}
+              setEditionID = {props.setEditionID}
+              info={editionsDataTest[edition].info}
+              editionMinAmount={editionsDataTest[edition].editionMinAmount}
+              setTempPledgeValue={setTempPledgeValue}
+              id = {editionsDataTest[edition].id}
+              startCount = {props.currentcount}
+            modalMode={true}
+            submit={
+          
+              editionsDataTest[edition].editionMinAmount < tempPledgeValue
+                ? thanksNoReward
+                : notEnoughPledged
+            }
+
+            />
+      
+          );
+        })}
+
+        {/* NEED TO ADD IN COUNT */}
+
+       
+{/* 
         <div>
             <Editions
             title={"Bamboo Stand"}
             id = {"bamboo"}
-            setEditionName = {props.setEditionName}
-            editionMinAmount={props.bambooMinAmt}
+            setEditionID = {props.setEditionID}
+            editionMinAmount={25}
             info={
               "You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list."
             }
@@ -94,14 +130,14 @@ function BackThisProject(props) {
             }
             
           />
-        </div>
-        <div>
+        </div> */}
+        {/* <div>
           <Editions
             title={"Black Edition Stand"}
             id = {"black"}
-            setEditionName = {props.setEditionName}
+            setEditionID = {props.setEditionID}
            
-            editionMinAmount={props.blackMinAmt}
+            editionMinAmount={75}
             info={
               "You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included."
             }
@@ -122,9 +158,9 @@ function BackThisProject(props) {
         <div>
           <Editions
             title={"Mahogany Special Edition"}
-            setEditionName = {props.setEditionName}
+            setEditionID = {props.setEditionID}
             id="se"
-            editionMinAmount={props.seMinAmt}
+            editionMinAmount={200}
             info={
               "You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included."
             }
@@ -140,7 +176,7 @@ function BackThisProject(props) {
             setTempPledgeValue={setTempPledgeValue}
             type={props.seType}
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );

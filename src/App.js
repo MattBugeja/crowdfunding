@@ -25,25 +25,47 @@ function App() {
 
   const [pledgeSubmitted, setPledgeSubmitted] = useState(0);
 
-  const [editionName, setEditionName] = useState("")
-
+  const [editionID, setEditionID] = useState("");
 
   function pledgeSubmittedTracker() {
     setPledgeSubmitted(pledgeSubmitted + 1);
   }
 
-  function click() {
 
-    switch (editionName){
+  function currentcount(){
 
-      case "bamboo" : setBambooCount(bambooCount - 1);
+    switch (editionID){
+
+      case "bamboo" : return bambooCount
       break
-      case "black" : setBlackCount(blackCount - 1);
+      case "black" : return blackCount
       break
-      case "se" : setSeCount(seCount - 1);
-
+      case "se" : return seCount
     }
+
+
+
     
+
+
+
+
+
+
+  }
+
+
+  function click() {
+    switch (editionID) {
+      case "bamboo":
+        setBambooCount(bambooCount - 1);
+        break;
+      case "black":
+        setBlackCount(blackCount - 1);
+        break;
+      case "se":
+        setSeCount(seCount - 1);
+    }
   }
 
   function updatePledgeAmount() {
@@ -70,7 +92,6 @@ function App() {
     updateNumOfBackers();
     updatePledgeAmount();
     setPledgeValue(0);
-    console.log(editionName, "in App")
   }, [pledgeSubmitted]);
 
   return (
@@ -84,14 +105,15 @@ function App() {
         blackCount={blackCount}
         seCount={seCount}
         reduceCount={click}
-        noRewardMinAmt={noRewardMinAmt}
-        bambooMinAmt={bambooMinAmt}
-        blackMinAmt={blackMinAmt}
-        seMinAmt={seMinAmt}
+        // noRewardMinAmt={noRewardMinAmt}
+        // bambooMinAmt={bambooMinAmt}
+        // blackMinAmt={blackMinAmt}
+        // seMinAmt={seMinAmt}
         pledgeValue={pledgeValue}
         setPledgeValue={setPledgeValue}
         pledgeSubmitted={pledgeSubmittedTracker}
-        setEditionName = {setEditionName}
+        setEditionID={setEditionID}
+        currentcount = {currentcount}
       />
 
       <div className="test2">
@@ -114,10 +136,10 @@ function App() {
             bambooCount={bambooCount}
             blackCount={blackCount}
             seCount={seCount}
-            noRewardMinAmt={noRewardMinAmt}
-            bambooMinAmt={bambooMinAmt}
-            blackMinAmt={blackMinAmt}
-            seMinAmt={seMinAmt}
+            // noRewardMinAmt={noRewardMinAmt}
+            // bambooMinAmt={bambooMinAmt}
+            // blackMinAmt={blackMinAmt}
+            // seMinAmt={seMinAmt}
           />
         </div>
       </div>

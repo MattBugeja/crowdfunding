@@ -24,11 +24,10 @@ function About(props) {
         <div>
           <Editions
             title={"Bamboo Stand"}
-            // pledge={`Pledge ${minAmo} or more`}
             info={
               "You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list."
             }
-            editionMinAmount = {props.bambooMinAmt}
+            editionMinAmount = {25}
             startcount={props.bambooCount}
             modalMode={false}
             text={"left"}
@@ -41,7 +40,7 @@ function About(props) {
             info={
               "You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included."
             }
-            editionMinAmount = {props.blackMinAmt}
+            editionMinAmount = {75}
             startcount={props.blackCount}
             modalMode={false}
             text={"left"}
@@ -54,7 +53,7 @@ function About(props) {
             info={
               "You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included."
             }
-            editionMinAmount = {props.seMinAmt}
+            editionMinAmount = {200}
             startcount={props.seCount}
             modalMode={false}
             text={"left"}
