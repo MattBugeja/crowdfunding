@@ -1,6 +1,7 @@
 import classes from "./About.module.css";
 import React from "react";
 import Editions from "../editions/editions";
+import BambooEdition from "../editions/BambooEdition";
 
 
 
@@ -21,8 +22,10 @@ function About(props) {
       </div>
 
       <div className={classes.column}>
-        <div>
-          <Editions
+        {/* <div> */}
+
+        <BambooEdition setEditionID = {props.setEditionID} startcount = {props.bambooCount} modalMode = {false}/>
+          {/* <Editions
             title={"Bamboo Stand"}
             info={
               "You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list."
@@ -32,7 +35,7 @@ function About(props) {
             modalMode={false}
             text={"left"}
           />
-        </div>
+        </div> */}
         <div>
           <Editions
             title={"Black Edition Stand"}
