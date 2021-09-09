@@ -1,7 +1,8 @@
 import classes from "./About.module.css";
 import React from "react";
-import Editions from "../editions/editions";
 import BambooEdition from "../editions/BambooEdition";
+import BlackEdition from "../editions/BlackEdition";
+import SeEdition from "../editions/seEdition";
 
 
 
@@ -22,46 +23,9 @@ function About(props) {
       </div>
 
       <div className={classes.column}>
-        {/* <div> */}
-
         <BambooEdition setEditionID = {props.setEditionID} startcount = {props.bambooCount} modalMode = {false}/>
-          {/* <Editions
-            title={"Bamboo Stand"}
-            info={
-              "You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list."
-            }
-            editionMinAmount = {25}
-            startcount={props.bambooCount}
-            modalMode={false}
-            text={"left"}
-          />
-        </div> */}
-        <div>
-          <Editions
-            title={"Black Edition Stand"}
-            pledge={"Pledge $75 or more"}
-            info={
-              "You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included."
-            }
-            editionMinAmount = {75}
-            startcount={props.blackCount}
-            modalMode={false}
-            text={"left"}
-          />
-        </div>
-        <div>
-          <Editions
-            title={"Mahogany Special Edition"}
-            pledge={"Pledge $200 or more"}
-            info={
-              "You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included."
-            }
-            editionMinAmount = {200}
-            startcount={props.seCount}
-            modalMode={false}
-            text={"left"}
-          />
-        </div>
+        <BlackEdition setEditionID = {props.setEditionID} startcount = {props.bambooCount} modalMode = {false}/>
+        <SeEdition setEditionID = {props.setEditionID} startcount = {props.bambooCount} modalMode = {false}/>                
       </div>
     </div>
   );

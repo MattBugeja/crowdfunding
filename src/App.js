@@ -43,29 +43,29 @@ function App() {
   }
 
   function currentcount() {
-    // switch (editionID) {
-    //   case "bamboo":
-    //     return bambooCount;
-    //     break;
-    //   case "black":
-    //     return blackCount;
-    //     break;
-    //   case "se":
-    //     return seCount;
-    // }
+    switch (editionID) {
+      case "bamboo":
+        return bambooCount;
+        break;
+      case "black":
+        return blackCount;
+        break;
+      case "se":
+        return seCount;
+    }
   }
 
   function click() {
-    // switch (editionID) {
-    //   case "bamboo":
-    //     setBambooCount(bambooCount - 1);
-    //     break;
-    //   case "black":
-    //     setBlackCount(blackCount - 1);
-    //     break;
-    //   case "se":
-    //     setSeCount(seCount - 1);
-    // }
+    switch (editionID) {
+      case "bamboo":
+        setBambooCount(bambooCount - 1);
+        break;
+      case "black":
+        setBlackCount(blackCount - 1);
+        break;
+      case "se":
+        setSeCount(seCount - 1);
+    }
   }
 
   function updatePledgeAmount() {
