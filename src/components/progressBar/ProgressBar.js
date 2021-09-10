@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./ProgressBar.module.css";
 
-function ProgressBar(props) {
+function ProgressBarMine(props) {
   return (
     <div>
       <div className={classes.container}>
@@ -11,4 +11,4 @@ function ProgressBar(props) {
   );
 }
 
-export default ProgressBar;
+export default ProgressBarMine;

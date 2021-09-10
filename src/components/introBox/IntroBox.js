@@ -25,10 +25,9 @@ function IntroBox(props) {
 
   function changeBackingModal() {
     backingModal ? setIsBackingModal(false) : setIsBackingModal(true);
-    console.log("not enough 1");
   }
 
-  function thanksHandler() {
+  function pledgeSubmittedTracker() {
     pledgeSubmitted ? setPledgeSubmitted(false) : setPledgeSubmitted(true);
   }
 
@@ -38,8 +37,6 @@ function IntroBox(props) {
   }
 
   function notEnoughPledged() {
-    console.log("not enough 2");
-
     setEnoughPledged(false);
   }
 
@@ -58,27 +55,18 @@ function IntroBox(props) {
         {backingModal && (
           <BackThisProject
             close={changeBackingModal}
-            thanks={thanksHandler}
+            thanks={pledgeSubmittedTracker}
             notEnoughPledged={notEnoughPledged}
             enoughWasPledged={enoughWasPledged}
-            bambooCount={props.bambooCount}
-            blackCount={props.blackCount}
-            seCount={props.seCount}
-            // reduceCount={props.reduceCount}
-            // noRewardMinAmt={props.noRewardMinAmt}
-            // bambooMinAmt={props.bambooMinAmt}
-            // blackMinAmt={props.blackMinAmt}
-            // seMinAmt={props.seMinAmt}
             pledgeValue={props.pledgedValue}
             setPledgeValue={props.setPledgeValue}
-            setEditionID={props.setEditionID}
           />
         )}
 
         {pledgeSubmitted && <OverlayModal />}
-        {pledgeSubmitted && <Thanks closeIt={thanksHandler} />}
+        {pledgeSubmitted && <Thanks closeIt={pledgeSubmittedTracker} />}
         {pledgeSubmitted && !enoughPledged && (
-          <NoAmount closeIt={thanksHandler} />
+          <NoAmount closeIt={pledgeSubmittedTracker} />
         )}
 
         <div>

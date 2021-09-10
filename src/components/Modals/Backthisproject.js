@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import classes from "./Backthisproject.module.css";
-import Editions from "../editions/editions";
 import BambooEdition from "../editions/BambooEdition";
 
 import { ReactComponent as CloseIcon } from "./assets/icon-close-modal.svg";
@@ -18,10 +17,8 @@ function BackThisProject(props) {
   }
 
   function thanksWithReward() {
-    // e.preventDefault()
     props.setPledgeValue(tempPledgeValue);
     props.enoughWasPledged();
-    // props.reduceCount();
     props.close();
     props.thanks();
   }
@@ -54,17 +51,15 @@ function BackThisProject(props) {
 
       <div className={classes.rows}>
         <NoRewardEdition
-          setEditionID={props.setEditionID}
           setTempPledgeValue={setTempPledgeValue}
           modalMode={true}
           tempPledgeValue={tempPledgeValue}
-          enoughPledged={thanksWithReward}
+          enoughPledged={thanksNoReward}
           notEnoughPledged={notEnoughPledged}
         />
 
         <BambooEdition
-          // setEditionID={props.setEditionID}
-          // startcount={props.bambooCount}
+     
           setTempPledgeValue={setTempPledgeValue}
           modalMode={true}
           tempPledgeValue={tempPledgeValue}
@@ -73,8 +68,7 @@ function BackThisProject(props) {
         />
 
         <BlackEdition
-          setEditionID={props.setEditionID}
-          startcount={props.blackCount}
+
           setTempPledgeValue={setTempPledgeValue}
           modalMode={true}
           tempPledgeValue={tempPledgeValue}
@@ -83,8 +77,6 @@ function BackThisProject(props) {
         />
 
         <SeEdition
-          setEditionID={props.setEditionID}
-          startcount={props.seCount}
           setTempPledgeValue={setTempPledgeValue}
           modalMode={true}
           tempPledgeValue={tempPledgeValue}

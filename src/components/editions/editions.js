@@ -1,20 +1,14 @@
 import React from "react";
 
-import { useState, useRef } from "react";
+import { useState,} from "react";
 import classes from "./editions.module.css";
 import Button from "../buttons/Button";
 
 function Editions(props) {
-  const idRef = useRef(props.id);
-  
-
+ 
   const count = props.startcount;
   const [modalMode] = useState(props.modalMode);
   const minAmount = props.editionMinAmount;
-
-  function updateEditionID() {
-    props.setEditionID(idRef.current);
-  }
 
   return (
     
@@ -47,7 +41,6 @@ function Editions(props) {
             <form onSubmit={props.submit}>
               <input
                 className={classes.pledgeAmount}
-                value={props.pledgeValue}
                 onInput={(e) => props.setTempPledgeValue(e.target.value)}
                 type="number"
                 
@@ -57,7 +50,6 @@ function Editions(props) {
                 type={props.type}
                 smallButton={true}
                 className={classes.btn}
-                // click= {updateEditionID}
                 text="Continue"
               />
             </form>

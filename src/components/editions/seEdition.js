@@ -4,9 +4,6 @@ import { useContext } from "react";
 import seContext from "../contexts/seContext";
 
 const SeEdition = (props) => {
-
-
-
   const { seCount, setSeCount } = useContext(seContext);
 
   function enoughPledged(e) {
@@ -15,14 +12,11 @@ const SeEdition = (props) => {
     setSeCount(seCount - 1);
   }
 
-
-
   const editionMinAmount = 75;
   return (
     <div>
       <Editions
         title={"Mahogany Special Edition"}
-        id={"se"}
         setEditionID={props.setEditionID}
         editionMinAmount={editionMinAmount}
         info={

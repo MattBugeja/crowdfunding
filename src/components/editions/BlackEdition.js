@@ -18,7 +18,6 @@ const BlackEdition = (props) => {
       <Editions
         title={"Black Stand"}
         setTempPledgeValue={props.setTempPledgeValue}
-        id={"black"}
         editionMinAmount={editionMinAmount}
         info={
           "You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included."
