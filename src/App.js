@@ -5,12 +5,12 @@ import HeroImg from "./components/heroImg/HeroImg";
 import IntroBox from "./components/introBox/IntroBox";
 import ProgressBar from "./components/progressBar/ProgressBar";
 import About from "./components/about/About";
-import { useState, useEffect, useContext } from "react";
-// import { BambooContext, BambooProvider } from "./components/contexts/bambooContext";
+import { useState, useEffect,} from "react";
+import BambooContext from "./components/contexts/bambooContext";
 
 function App() {
 
-  // const {bambooCount, bambooMinAmt} = useContext(BambooContext)
+  
 
   // const [bambooCountValue, setBambooCount] = bambooCount;
   // const [bambooMinAmtValue] = bambooMinAmt;
@@ -19,7 +19,7 @@ function App() {
 
 
 
-  const [bambooCount, setBambooCount] = useState(10);
+  // const [bambooCount, setBambooCount] = useState(10);
   const [blackCount, setBlackCount] = useState(10);
   const [seCount, setSeCount] = useState(10);
 
@@ -42,31 +42,31 @@ function App() {
     setPledgeSubmitted(pledgeSubmitted + 1);
   }
 
-  function currentcount() {
-    switch (editionID) {
-      case "bamboo":
-        return bambooCount;
-        break;
-      case "black":
-        return blackCount;
-        break;
-      case "se":
-        return seCount;
-    }
-  }
+  // function currentcount() {
+  //   switch (editionID) {
+  //     case "bamboo":
+  //       return bambooCount;
+  //       break;
+  //     case "black":
+  //       return blackCount;
+  //       break;
+  //     case "se":
+  //       return seCount;
+  //   }
+  // }
 
-  function click() {
-    switch (editionID) {
-      case "bamboo":
-        setBambooCount(bambooCount - 1);
-        break;
-      case "black":
-        setBlackCount(blackCount - 1);
-        break;
-      case "se":
-        setSeCount(seCount - 1);
-    }
-  }
+  // function click() {
+  //   switch (editionID) {
+  //     case "bamboo":
+  //       setBambooCount(bambooCount - 1);
+  //       break;
+  //     case "black":
+  //       setBlackCount(blackCount - 1);
+  //       break;
+  //     case "se":
+  //       setSeCount(seCount - 1);
+  //   }
+  // }
 
   function updatePledgeAmount() {
     const updatedAmt = parseInt(amtBacked) + parseInt(pledgeValue);
@@ -94,18 +94,23 @@ function App() {
     setPledgeValue(0);
   }, [pledgeSubmitted]);
 
+
+  const [bambooCount, setBambooCount] = useState(16)
+  const bambooValue = {bambooCount, setBambooCount}
+
   return (
-    // <BambooContext.Provider> 
+    <BambooContext.Provider value = {bambooValue}>
+  
     <div>
       <Header />
 
       <HeroImg />
 
       <IntroBox
-        bambooCount={bambooCount}
+        // bambooCount={bambooCount}
         blackCount={blackCount}
         seCount={seCount}
-        reduceCount={click}
+        // reduceCount={click}
         // noRewardMinAmt={noRewardMinAmt}
         // bambooMinAmt={bambooMinAmt}
         // blackMinAmt={blackMinAmt}
@@ -114,7 +119,7 @@ function App() {
         setPledgeValue={setPledgeValue}
         pledgeSubmitted={pledgeSubmittedTracker}
         setEditionID={setEditionID}
-        currentcount={currentcount}
+        // currentcount={currentcount}
       />
 
       <div className="test2">
@@ -145,7 +150,7 @@ function App() {
         </div>
       </div>
     </div>
-    // </BambooContext.Provider>
+    </BambooContext.Provider>
   );
 }
 

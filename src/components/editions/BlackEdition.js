@@ -5,6 +5,9 @@ const BlackEdition = (props) => {
   // const
   const editionMinAmount = 75;
 
+  const startCount = props.startcount
+  
+
   return (
     <div>
       <Editions
@@ -15,10 +18,10 @@ const BlackEdition = (props) => {
         info={
           "You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included."
         }
-        startcount={props.startcount}
+        startcount={startCount}
         modalMode={props.modalMode}
         text={"left"}
-        setTempPledgeValue={props.setTempPledgeValue}
+        // setTempPledgeValue={props.setTempPledgeValue}
         submit={
           editionMinAmount < props.tempPledgeValue
             ? props.enoughPledged

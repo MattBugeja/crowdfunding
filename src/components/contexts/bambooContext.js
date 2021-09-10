@@ -1,5 +1,6 @@
+import React from "react";
 import { createContext } from "react";
 
-const BambooContext = createContext([0, () => {}])
+const BambooContext = createContext([10, () => {}])
 
 export default BambooContext

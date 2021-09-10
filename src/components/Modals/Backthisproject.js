@@ -10,11 +10,6 @@ import SeEdition from "../editions/seEdition";
 import NoRewardEdition from "../editions/NoRewardEdition";
 
 function BackThisProject(props) {
-  // const [bambooCountValue, setBambooCount] = bambooCount;
-  // const [bambooMinAmtValue] = bambooMinAmt;
-  // const [pledgeValueValue] = pledgeValue
-  // const [titleValue] = title
-  // const editions = ["bamboo", "black", "specialEdition"];
 
   const [tempPledgeValue, setTempPledgeValue] = useState(0);
 
@@ -23,9 +18,10 @@ function BackThisProject(props) {
   }
 
   function thanksWithReward() {
+    // e.preventDefault()
     props.setPledgeValue(tempPledgeValue);
     props.enoughWasPledged();
-    props.reduceCount();
+    // props.reduceCount();
     props.close();
     props.thanks();
   }
@@ -43,7 +39,6 @@ function BackThisProject(props) {
     props.thanks();
   }
 
-  // const editionsDataTest = editionsData.data;
 
   return (
     <div className={classes.container}>
@@ -68,7 +63,7 @@ function BackThisProject(props) {
         />
 
         <BambooEdition
-          setEditionID={props.setEditionID}
+          // setEditionID={props.setEditionID}
           startcount={props.bambooCount}
           setTempPledgeValue={setTempPledgeValue}
           modalMode={true}

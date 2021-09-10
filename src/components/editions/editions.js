@@ -57,7 +57,7 @@ function Editions(props) {
                 type={props.type}
                 smallButton={true}
                 className={classes.btn}
-                // click={updateEditionID}
+                // click= {updateEditionID}
                 text="Continue"
               />
             </form>

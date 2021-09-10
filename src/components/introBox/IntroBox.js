@@ -64,7 +64,7 @@ function IntroBox(props) {
             bambooCount={props.bambooCount}
             blackCount={props.blackCount}
             seCount={props.seCount}
-            reduceCount={props.reduceCount}
+            // reduceCount={props.reduceCount}
             // noRewardMinAmt={props.noRewardMinAmt}
             // bambooMinAmt={props.bambooMinAmt}
             // blackMinAmt={props.blackMinAmt}
