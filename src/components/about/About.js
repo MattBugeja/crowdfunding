@@ -1,14 +1,44 @@
 import classes from "./About.module.css";
-import React from "react";
+import React, { useContext } from "react";
 import BambooEdition from "../editions/BambooEdition";
 import BlackEdition from "../editions/BlackEdition";
 import SeEdition from "../editions/seEdition";
-
-
+import OverlayModal from "../overlay/OverlayModal";
+import { useState } from "react";
+import Thanks from "../Modals/Thanks";
+import NoAmount from "../Modals/NoAmount";
 
 function About(props) {
+  const [pledgeSubmitted, setPledgeSubmitted] = useState(false);
+  const [enoughPledged, setEnoughPledged] = useState(true);
+  const [tempPledgeValue, setTempPledgeValue] = useState(0);
 
- 
+
+
+
+
+
+  function pledgeSubmittedTracker() {
+    pledgeSubmitted ? setPledgeSubmitted(false) : setPledgeSubmitted(true);
+  }
+
+  function enoughWasPledged() {
+    setEnoughPledged(true);
+    props.pledgeSubmitted();
+  }
+
+  function notEnoughPledged() {
+    setEnoughPledged(false);
+    pledgeSubmittedTracker();
+  }
+
+  function thanksWithReward() {
+    props.setPledgeValue(tempPledgeValue);
+    enoughWasPledged();
+    pledgeSubmittedTracker();
+    setTempPledgeValue(0);
+  }
+
   return (
     <div className={classes.container}>
       <div className={classes.title}>About this project</div>
@@ -23,10 +53,23 @@ function About(props) {
       </div>
 
       <div className={classes.column}>
-        <BambooEdition setEditionID = {props.setEditionID}  modalMode = {false}/>
-        <BlackEdition setEditionID = {props.setEditionID} modalMode = {false}/>
-        <SeEdition setEditionID = {props.setEditionID}  modalMode = {false}/>                
+        <BambooEdition
+          setTempPledgeValue={setTempPledgeValue}
+          tempPledgeValue={tempPledgeValue}
+          enoughPledged={thanksWithReward}
+          notEnoughPledged={notEnoughPledged}
+          modalMode={false}
+        />
+
+        <BlackEdition setEditionID={props.setEditionID} modalMode={false} />
+        <SeEdition setEditionID={props.setEditionID} modalMode={false} />
       </div>
+
+      {pledgeSubmitted && <OverlayModal />}
+      {pledgeSubmitted && <Thanks closeIt={pledgeSubmittedTracker} />}
+      {pledgeSubmitted && !enoughPledged && (
+        <NoAmount closeIt={pledgeSubmittedTracker} />
+      )}
     </div>
   );
 }

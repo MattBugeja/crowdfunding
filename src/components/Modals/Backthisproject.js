@@ -1,15 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import classes from "./Backthisproject.module.css";
-import BambooEdition from "../editions/BambooEdition";
-
 import { ReactComponent as CloseIcon } from "./assets/icon-close-modal.svg";
+import BambooEdition from "../editions/BambooEdition";
 import BlackEdition from "../editions/BlackEdition";
 import SeEdition from "../editions/seEdition";
 import NoRewardEdition from "../editions/NoRewardEdition";
 
 function BackThisProject(props) {
-
   const [tempPledgeValue, setTempPledgeValue] = useState(0);
 
   function closeBackThisProject() {
@@ -36,7 +34,6 @@ function BackThisProject(props) {
     props.thanks();
   }
 
-
   return (
     <div className={classes.container}>
       <div className={classes.title}>
@@ -59,7 +56,6 @@ function BackThisProject(props) {
         />
 
         <BambooEdition
-     
           setTempPledgeValue={setTempPledgeValue}
           modalMode={true}
           tempPledgeValue={tempPledgeValue}
@@ -68,7 +64,6 @@ function BackThisProject(props) {
         />
 
         <BlackEdition
-
           setTempPledgeValue={setTempPledgeValue}
           modalMode={true}
           tempPledgeValue={tempPledgeValue}

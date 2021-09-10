@@ -4,7 +4,6 @@ import { useState } from "react";
 import bookmarkIcon from "./assets/icon-bookmark.svg";
 import clickedBookmarkIcon from "./assets/icon-bookmark-clicked.svg";
 import logo from "./assets/logo-mastercraft.svg";
-
 import Button from "../buttons/Button";
 import OverlayModal from "../overlay/OverlayModal";
 import BackThisProject from "../Modals/Backthisproject";
@@ -58,7 +57,6 @@ function IntroBox(props) {
             thanks={pledgeSubmittedTracker}
             notEnoughPledged={notEnoughPledged}
             enoughWasPledged={enoughWasPledged}
-            pledgeValue={props.pledgedValue}
             setPledgeValue={props.setPledgeValue}
           />
         )}
