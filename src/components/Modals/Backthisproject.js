@@ -64,7 +64,7 @@ function BackThisProject(props) {
 
         <BambooEdition
           // setEditionID={props.setEditionID}
-          startcount={props.bambooCount}
+          // startcount={props.bambooCount}
           setTempPledgeValue={setTempPledgeValue}
           modalMode={true}
           tempPledgeValue={tempPledgeValue}

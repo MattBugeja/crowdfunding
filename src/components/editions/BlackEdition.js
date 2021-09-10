@@ -1,30 +1,34 @@
 import React from "react";
 import Editions from "./editions";
+import { useContext } from "react";
+import BlackContext from "../contexts/blackContext";
 
 const BlackEdition = (props) => {
-  // const
+  const { blackCount, setBlackCount } = useContext(BlackContext);
+
+  function enoughPledged(e) {
+    e.preventDefault();
+    props.enoughPledged();
+    setBlackCount(blackCount - 1);
+  }
+
   const editionMinAmount = 75;
-
-  const startCount = props.startcount
-  
-
   return (
     <div>
       <Editions
         title={"Black Stand"}
+        setTempPledgeValue={props.setTempPledgeValue}
         id={"black"}
-        setEditionID={props.setEditionID}
         editionMinAmount={editionMinAmount}
         info={
           "You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included."
         }
-        startcount={startCount}
+        startcount={blackCount}
         modalMode={props.modalMode}
         text={"left"}
-        // setTempPledgeValue={props.setTempPledgeValue}
         submit={
           editionMinAmount < props.tempPledgeValue
-            ? props.enoughPledged
+            ? enoughPledged
             : props.notEnoughPledged
         }
       />

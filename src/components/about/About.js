@@ -23,9 +23,9 @@ function About(props) {
       </div>
 
       <div className={classes.column}>
-        <BambooEdition setEditionID = {props.setEditionID} startcount = {props.bambooCount} modalMode = {false}/>
-        <BlackEdition setEditionID = {props.setEditionID} startcount = {props.bambooCount} modalMode = {false}/>
-        <SeEdition setEditionID = {props.setEditionID} startcount = {props.bambooCount} modalMode = {false}/>                
+        <BambooEdition setEditionID = {props.setEditionID}  modalMode = {false}/>
+        <BlackEdition setEditionID = {props.setEditionID} modalMode = {false}/>
+        <SeEdition setEditionID = {props.setEditionID}  modalMode = {false}/>                
       </div>
     </div>
   );

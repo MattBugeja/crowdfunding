@@ -7,26 +7,13 @@ import ProgressBar from "./components/progressBar/ProgressBar";
 import About from "./components/about/About";
 import { useState, useEffect,} from "react";
 import BambooContext from "./components/contexts/bambooContext";
+import BlackContext from "./components/contexts/blackContext";
+import seContext from "./components/contexts/seContext";
 
 function App() {
 
-  
-
-  // const [bambooCountValue, setBambooCount] = bambooCount;
-  // const [bambooMinAmtValue] = bambooMinAmt;
-  // const [pledgeValueValue] = pledgeValue
 
 
-
-
-  // const [bambooCount, setBambooCount] = useState(10);
-  const [blackCount, setBlackCount] = useState(10);
-  const [seCount, setSeCount] = useState(10);
-
-  // const [noRewardMinAmt] = useState(1);
-  // const [bambooMinAmt] = useState(25);
-  // const [blackMinAmt] = useState(75);
-  // const [seMinAmt] = useState(200);
 
   const [pledgeValue, setPledgeValue] = useState(0);
 
@@ -42,31 +29,7 @@ function App() {
     setPledgeSubmitted(pledgeSubmitted + 1);
   }
 
-  // function currentcount() {
-  //   switch (editionID) {
-  //     case "bamboo":
-  //       return bambooCount;
-  //       break;
-  //     case "black":
-  //       return blackCount;
-  //       break;
-  //     case "se":
-  //       return seCount;
-  //   }
-  // }
-
-  // function click() {
-  //   switch (editionID) {
-  //     case "bamboo":
-  //       setBambooCount(bambooCount - 1);
-  //       break;
-  //     case "black":
-  //       setBlackCount(blackCount - 1);
-  //       break;
-  //     case "se":
-  //       setSeCount(seCount - 1);
-  //   }
-  // }
+  
 
   function updatePledgeAmount() {
     const updatedAmt = parseInt(amtBacked) + parseInt(pledgeValue);
@@ -95,11 +58,25 @@ function App() {
   }, [pledgeSubmitted]);
 
 
-  const [bambooCount, setBambooCount] = useState(16)
+  const [bambooCount, setBambooCount] = useState(10)
   const bambooValue = {bambooCount, setBambooCount}
+
+
+  const [blackCount, setBlackCount] = useState(10);
+  const blackValue = {blackCount, setBlackCount}
+
+
+
+  const [seCount, setSeCount] = useState(10);
+  const seValue = {seCount, setSeCount}
+
+
+
 
   return (
     <BambooContext.Provider value = {bambooValue}>
+      <BlackContext.Provider value = {blackValue}>
+        <seContext.Provider value = {seValue}>
   
     <div>
       <Header />
@@ -150,6 +127,8 @@ function App() {
         </div>
       </div>
     </div>
+    </seContext.Provider>
+    </BlackContext.Provider>
     </BambooContext.Provider>
   );
 }
