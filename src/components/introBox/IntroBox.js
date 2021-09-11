@@ -40,7 +40,7 @@ function IntroBox(props) {
   }
 
   return (
-    <div className={classes.text}>
+    <div className={`${classes.text}`}>
       <img className={classes.logo} src={logo} alt=""></img>
       <h1 className={classes.h1}>Mastercraft Bamboo Monitor Riser </h1>{" "}
       <div className={classes.details}>

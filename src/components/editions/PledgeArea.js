@@ -3,7 +3,7 @@ import classes from "./PledgeArea.module.css";
 import { useState } from "react";
 
 function PledgeArea(props) {
-  const [inputValue, setInputValue] = useState(0);
+  const [inputValue, setInputValue] = useState("");
 
   const handleUserInput = (e) => {
     setInputValue(e.target.value);
@@ -14,10 +14,11 @@ function PledgeArea(props) {
   };
 
   return (
+    
     <div className={classes.enterPledge}>
       Enter your pledge
       <div className={classes.row}>
-        <form onSubmit={props.submit}>
+        <form className ={classes.form} onSubmit={props.submit}>
           <input
             className={classes.pledgeAmount}
             value={inputValue}

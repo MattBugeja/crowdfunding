@@ -14,7 +14,7 @@ const SeEdition = (props) => {
 
   const editionMinAmount = 75;
   return (
-    <div>
+   
       <Editions
         title={"Mahogany Special Edition"}
         setEditionID={props.setEditionID}
@@ -32,7 +32,7 @@ const SeEdition = (props) => {
             : props.notEnoughPledged
         }
       />
-    </div>
+ 
   );
 };
 

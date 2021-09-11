@@ -10,7 +10,6 @@ body {
   position: relative;
   width: 90%;
   height: auto;
-  /* background-color: blue; */
   display: flex;
   flex-direction: column;
   top: -32px;
@@ -24,7 +23,6 @@ body {
   background-color: white;
   height: auto;
   border-radius: 10px;
-  /* border: 1px black solid; */
 }
 
 hr {
@@ -38,4 +36,13 @@ hr {
   background-color: white;
   height: auto;
   border-radius: 10px;
+  
+}
+
+@media(min-width: 765px){
+  .box{width: 730px;
+  margin: 0 auto;};
+
+
+
 }

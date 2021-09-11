@@ -1,5 +1,5 @@
 import classes from "./About.module.css";
-import React, { useContext } from "react";
+import React  from "react";
 import BambooEdition from "../editions/BambooEdition";
 import BlackEdition from "../editions/BlackEdition";
 import SeEdition from "../editions/seEdition";
@@ -13,11 +13,6 @@ function About(props) {
   const [enoughPledged, setEnoughPledged] = useState(true);
   const [tempPledgeValue, setTempPledgeValue] = useState(0);
 
-
-
-
-
-
   function pledgeSubmittedTracker() {
     pledgeSubmitted ? setPledgeSubmitted(false) : setPledgeSubmitted(true);
   }
@@ -27,7 +22,8 @@ function About(props) {
     props.pledgeSubmitted();
   }
 
-  function notEnoughPledged() {
+  function notEnoughPledged(e) {
+    e.preventDefault();
     setEnoughPledged(false);
     pledgeSubmittedTracker();
   }
@@ -61,8 +57,16 @@ function About(props) {
           modalMode={false}
         />
 
-        <BlackEdition setEditionID={props.setEditionID} modalMode={false} />
-        <SeEdition setEditionID={props.setEditionID} modalMode={false} />
+        <BlackEdition   setTempPledgeValue={setTempPledgeValue}
+          tempPledgeValue={tempPledgeValue}
+          enoughPledged={thanksWithReward}
+          notEnoughPledged={notEnoughPledged}
+          modalMode={false}/>
+        <SeEdition   setTempPledgeValue={setTempPledgeValue}
+          tempPledgeValue={tempPledgeValue}
+          enoughPledged={thanksWithReward}
+          notEnoughPledged={notEnoughPledged}
+          modalMode={false}/>
       </div>
 
       {pledgeSubmitted && <OverlayModal />}

@@ -5,7 +5,6 @@ import BambooContext from "../contexts/bambooContext";
 
 const BambooEdition = (props) => {
   const { bambooCount, setBambooCount } = useContext(BambooContext);
-  // const {modalMode, setModalMode} = useState(props.modalMode)
 
   function enoughPledged(e) {
     e.preventDefault();
@@ -15,7 +14,7 @@ const BambooEdition = (props) => {
 
   const editionMinAmount = 25;
   return (
-    <div>
+  
       <Editions
         title={"Bamboo Stand"}
         setTempPledgeValue={props.setTempPledgeValue}
@@ -32,7 +31,7 @@ const BambooEdition = (props) => {
             : props.notEnoughPledged
         }
       />
-    </div>
+   
   );
 };
 

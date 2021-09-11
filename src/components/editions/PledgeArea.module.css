@@ -14,9 +14,7 @@
   .pledge {
     color: hsl(176, 50%, 47%);
     font-weight: 700;
-  
-    /* margin-bottom: 20px; */
-  }
+    }
   .info {
     margin-top: 20px;
     font-weight: 500;
@@ -40,12 +38,6 @@
     margin-left: 20px;
   }
   
-  /* .row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  } */
-  
   .row {
     width: 100%;
     display: flex;
@@ -62,14 +54,12 @@
     font-size: 16px;
     padding: 15px;
     position: relative;
-    /* z-index: 10; */
   }
   
   .wrapper {
     border-radius: 5px;
     border: solid 1px hsla(0, 0%, 48%, 0.158);
     position: relative;
-    /* z-index: 65; */
   }
   
   .active:hover {
@@ -83,7 +73,6 @@
   }
   
   .enterPledge {
-    /* display: none; */
     height: 100%;
     width: 100%;
     border: none;
@@ -111,9 +100,7 @@
   .overlay {
     background-color: rgba(0, 0, 0, 0.329);
     height: 10%;
-    /* left: 0; */
     position: relative;
-    /* top: 0; */
     width: 100%;
     z-index: 100;
   }

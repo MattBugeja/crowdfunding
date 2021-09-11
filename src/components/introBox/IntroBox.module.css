@@ -7,6 +7,7 @@ body {
 h1 {
   font-size: 1.5rem;
   margin: 0 15px;
+  color: black
 }
 
 .text {
@@ -38,9 +39,32 @@ h1 {
 .logo {
   position: relative;
   right: 15px;
+  margin-right: -15px; 
   top: -30px;
 }
 
 .bookmarkIcon {
   color: blue;
+}
+
+.bookmarkIcon::before{
+
+
+  content: " Bookmark"
+
+
+
+}
+
+
+@media(min-width: 765px){
+
+
+.text {width: 730px}
+
+
+
+
+
+
 }

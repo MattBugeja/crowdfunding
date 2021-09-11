@@ -7,7 +7,7 @@ import { useState } from "react";
 import BambooContext from "./components/contexts/bambooContext";
 import BlackContext from "./components/contexts/blackContext";
 import seContext from "./components/contexts/seContext";
-import CurrentBackers from "./components/backers/currentNumbers";
+import CurrentBackers from "./components/backers/CurrentNumbers";
 
 function App() {
   const [pledgeValue, setPledgeValue] = useState(0);
@@ -18,16 +18,13 @@ function App() {
   }
 
   const [bambooCount, setBambooCount] = useState(10);
-  const bambooValue = { bambooCount, setBambooCount,};
+  const bambooValue = { bambooCount, setBambooCount };
 
   const [blackCount, setBlackCount] = useState(10);
   const blackValue = { blackCount, setBlackCount };
 
   const [seCount, setSeCount] = useState(10);
   const seValue = { seCount, setSeCount };
-
-
-
 
   return (
     <BambooContext.Provider value={bambooValue}>
@@ -52,8 +49,10 @@ function App() {
               />
 
               <div className="box box2">
-                <About  setPledgeValue={setPledgeValue}
-              pledgeSubmitted={pledgeSubmittedTracker}/>
+                <About
+                  setPledgeValue={setPledgeValue}
+                  pledgeSubmitted={pledgeSubmittedTracker}
+                />
               </div>
             </div>
           </div>

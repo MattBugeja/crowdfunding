@@ -14,7 +14,7 @@ const BlackEdition = (props) => {
 
   const editionMinAmount = 75;
   return (
-    <div>
+    
       <Editions
         title={"Black Stand"}
         setTempPledgeValue={props.setTempPledgeValue}
@@ -31,7 +31,7 @@ const BlackEdition = (props) => {
             : props.notEnoughPledged
         }
       />
-    </div>
+   
   );
 };
 

@@ -4,7 +4,7 @@ import Editions from "./editions";
 const NoRewardEdition = (props) => {
   const editionMinAmount = 1;
   return (
-    <div>
+
       <Editions
         title={"Pledge with no reward"}
         id={"NoReward"}
@@ -21,7 +21,7 @@ const NoRewardEdition = (props) => {
             : props.notEnoughPledged
         }
       />
-    </div>
+  
   );
 };
 
