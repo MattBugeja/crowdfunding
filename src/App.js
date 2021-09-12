@@ -36,8 +36,8 @@ function App() {
             <HeroImg />
 
             <IntroBox
-              setPledgeValue={setPledgeValue}
-              pledgeSubmitted={pledgeSubmittedTracker}
+            setPledgeValue={setPledgeValue}
+            pledgeSubmitted={pledgeSubmittedTracker}
             />
 
             <div className="test2">

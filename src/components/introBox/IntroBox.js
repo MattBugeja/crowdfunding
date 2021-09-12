@@ -7,40 +7,38 @@ import logo from "./assets/logo-mastercraft.svg";
 import Button from "../buttons/Button";
 import OverlayModal from "../overlay/OverlayModal";
 import BackThisProject from "../Modals/Backthisproject";
-import Thanks from "../Modals/Thanks";
-import NoAmount from "../Modals/NoAmount";
 
 function IntroBox(props) {
-  const [isBookmarked, setIsBookedmarked] = useState(bookmarkIcon);
+  const [isBookmarked, setIsBookedmarked] = useState({
+    icon: bookmarkIcon,
+    text: "Bookmark",
+    style: { color: "#7A7A7A", backgroundColor: "hsla(0, 0%, 48%, 0.05)" },
+  });
   const [backingModal, setIsBackingModal] = useState(false);
-  const [pledgeSubmitted, setPledgeSubmitted] = useState(false);
-  const [enoughPledged, setEnoughPledged] = useState(true);
 
   function bookmarked() {
-    isBookmarked === clickedBookmarkIcon
-      ? setIsBookedmarked(bookmarkIcon)
-      : setIsBookedmarked(clickedBookmarkIcon);
+    isBookmarked.icon === clickedBookmarkIcon
+      ? setIsBookedmarked({
+          icon: bookmarkIcon,
+          text: "Bookmark",
+          style: { color: "#7A7A7A", backgroundColor: "hsl(0 0 18% 5%)" },
+        })
+      : setIsBookedmarked({
+          icon: clickedBookmarkIcon,
+          text: "Bookmarked",
+          style: {
+            color: "#147A73",
+            backgroundColor: "hsla(176, 72%, 28%, 0.05)",
+          },
+        });
   }
 
   function changeBackingModal() {
     backingModal ? setIsBackingModal(false) : setIsBackingModal(true);
   }
 
-  function pledgeSubmittedTracker() {
-    pledgeSubmitted ? setPledgeSubmitted(false) : setPledgeSubmitted(true);
-  }
-
-  function enoughWasPledged() {
-    setEnoughPledged(true);
-    props.pledgeSubmitted();
-  }
-
-  function notEnoughPledged() {
-    setEnoughPledged(false);
-  }
-
   return (
-    <div className={`${classes.text}`}>
+    <div className={classes.text}>
       <img className={classes.logo} src={logo} alt=""></img>
       <h1 className={classes.h1}>Mastercraft Bamboo Monitor Riser </h1>{" "}
       <div className={classes.details}>
@@ -54,26 +52,20 @@ function IntroBox(props) {
         {backingModal && (
           <BackThisProject
             close={changeBackingModal}
-            thanks={pledgeSubmittedTracker}
-            notEnoughPledged={notEnoughPledged}
-            enoughWasPledged={enoughWasPledged}
             setPledgeValue={props.setPledgeValue}
+            pledgeSubmitted={props.pledgeSubmitted}
+            modalMode={true}
           />
         )}
 
-        {pledgeSubmitted && <OverlayModal />}
-        {pledgeSubmitted && <Thanks closeIt={pledgeSubmittedTracker} />}
-        {pledgeSubmitted && !enoughPledged && (
-          <NoAmount closeIt={pledgeSubmittedTracker} />
-        )}
-
-        <div>
-          <img
-            className={bookmarkIcon}
-            src={isBookmarked}
-            alt="icon"
-            onClick={bookmarked}
-          ></img>
+        <img
+          className={classes.bookmarkIcon}
+          src={isBookmarked.icon}
+          alt="icon"
+          onClick={bookmarked}
+        ></img>
+        <div className={classes.bookMark} style={isBookmarked.style}>
+          {isBookmarked.text}
         </div>
       </div>
     </div>

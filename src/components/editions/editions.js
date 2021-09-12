@@ -28,12 +28,14 @@ function Editions(props) {
           <div className={classes.pledge}>Pledge ${minAmount} or more</div>
         </div>
         <div className={classes.info}>{props.info}</div>
+
+        <div className={classes.amountAndButton}>
         <div className={classes.amount}>
           {count} <span className={classes.left}>{props.text}</span>
         </div>
         {!modalMode && <Button text={"Select Reward"} click={setAboutMode} />}
       </div>
-
+      </div>
       {/* submit pledge area */}
 
       {(props.title === "Pledge with no reward" || count > 0) && modalMode && (

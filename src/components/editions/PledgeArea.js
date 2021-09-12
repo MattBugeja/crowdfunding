@@ -10,7 +10,7 @@ function PledgeArea(props) {
   };
 
   const resetInputFiled = () => {
-    setInputValue(0);
+    setInputValue("");
   };
 
   return (

@@ -2,6 +2,13 @@ import React from "react";
 import Editions from "./editions";
 
 const NoRewardEdition = (props) => {
+
+  function enoughPledged(e) {
+    e.preventDefault();
+    props.enoughPledged();
+     }
+
+
   const editionMinAmount = 1;
   return (
 
@@ -17,7 +24,7 @@ const NoRewardEdition = (props) => {
         setTempPledgeValue={props.setTempPledgeValue}
         submit={
           editionMinAmount < props.tempPledgeValue
-            ? props.enoughPledged
+            ? enoughPledged
             : props.notEnoughPledged
         }
       />
