@@ -9,9 +9,7 @@ function NoAmount(props) {
       <SuccessIcon />
       <div className={classes.title}> That's Odd</div>
       <div className={classes.msg}>
-        Thank you for helping us get one step closer to sharing Mastercraft Bamboo
-        Monitor Riser worldwide. 
-        
+       
         Unfortunately it seems your pledge wasn't captured correctly. Please try again.
         
       </div>

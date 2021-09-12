@@ -4,8 +4,9 @@
 }
 
 a {
-  color: black;
+  color: white;
   text-decoration: none;
+ 
 }
 
 .container {
@@ -14,11 +15,20 @@ a {
   width: 100%;
 }
 
+.logo-nav{
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%
+
+}
+
 .header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 1rem 1rem;
+  padding: 3rem 1rem;
   position: absolute;
   width: 100%;
   z-index: 2;
@@ -27,16 +37,48 @@ a {
   height: 100%;
   width: 100%;
 }
+
+.nav-options{
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: right;
+  width: 45%;
+  text-decoration: none;
+  list-style-type: none;
+
+}
+
+.mobile-menu{
+  display:none;
+}
+
+
+@media only screen and (max-width: 768px) {
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+  }
+
+
+
 .nav-options {
   display: flex;
   flex-direction: column;
   height: 300px;
   left: -150%;
   list-style-type: none;
+  margin-left: 20px;
   position: absolute;
   top: 80px;
   width: 100%;
-  margin-left: 20px;
 }
 .nav-options.active {
   align-content: center;
@@ -49,26 +91,30 @@ a {
   text-align: left;
   width: 90%;
   z-index: 6;
-  /* margin: 0 auto; */
 }
 
 .menu-icon {
+  align-content: right;
   height: 45px;
   width: 20px;
-  align-content: right;
 }
+
 .option {
   align-items: left;
   border-bottom: lightgrey solid 1px;
   display: flex;
-  /* height: 14vw; */
+  height: 60px;
   justify-content: left;
   padding: 1rem 1rem;
   text-decoration: none;
-  /* margin: 0 auto; */
-  height: 60px;
 }
 
 .mobile-menu {
   display: block;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
 }

@@ -21,7 +21,7 @@ function Item(props) {
 
   function enoughWasPledged() {
     setEnoughPledged(true);
-    props.pledgeSubmitted();
+    props.pledgeSubmittedTracker();
   }
 
   function notEnoughPledged(e) {
@@ -37,43 +37,32 @@ function Item(props) {
     setTempPledgeValue(0);
   }
 
+  const commonProps = {  setTempPledgeValue : setTempPledgeValue,
+  tempPledgeValue:tempPledgeValue,
+  enoughPledged : thanks,
+  notEnoughPledged:notEnoughPledged}
+
   return (
     <div className={classes.container}>
       <div className={props.modal ? classes.column : classes.rows}>
         {props.modal ? (
           <NoRewardEdition
-            pledgeSubmitted={pledgeSubmittedTracker}
-            setTempPledgeValue={setTempPledgeValue}
-            modalMode={props.modal}
-            tempPledgeValue={tempPledgeValue}
-            enoughPledged={thanks}
-            notEnoughPledged={notEnoughPledged}
+            {...commonProps}
           />
         ) : null}
 
         <BambooEdition
-          setTempPledgeValue={setTempPledgeValue}
-          tempPledgeValue={tempPledgeValue}
-          enoughPledged={thanks}
-          notEnoughPledged={notEnoughPledged}
-          modalMode={props.modal}
+
+{...commonProps}
         />
 
         <BlackEdition
-          setTempPledgeValue={setTempPledgeValue}
-          tempPledgeValue={tempPledgeValue}
-          enoughPledged={thanks}
-          notEnoughPledged={notEnoughPledged}
-          modalMode={props.modal}
+        {...commonProps}
         />
 
         <SeEdition
-          setTempPledgeValue={setTempPledgeValue}
-          tempPledgeValue={tempPledgeValue}
-          enoughPledged={thanks}
-          notEnoughPledged={notEnoughPledged}
-          modalMode={props.modal}
-        />
+{...commonProps}
+         />
       </div>
 
       {pledgeSubmitted && <OverlayModal />}

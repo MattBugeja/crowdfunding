@@ -12,14 +12,15 @@ h1 {
 
 .text {
   background-color: white;
-  border-radius: 15px;
+  border-radius: 10px;
   height: auto;
   margin: 0 auto;
   padding: 0px 20px 30px 20px;
   position: relative;
   text-align: center;
+  right: 0px;
   top: -50px;
-  width: 90%;
+  width: 100%;
 }
 
 .details {
@@ -43,25 +44,14 @@ h1 {
   top: -30px;
 }
 
-
 .bookMark{display:none}
 
-
-
-
-
-
 @media(min-width: 765px){
-
   .text {width: 730px} }
 
-
-  @media(min-width: 615px){
-
+  @media(min-width: 700px){
   .bookMark{
-    /* background-color: #ddd; */
     border: none;
-    /* color: hsl(0, 0%, 48%); */
     font-weight: bold;
     font-size: 16px;
     display: flex;
@@ -74,21 +64,8 @@ h1 {
   }
 
   .bookmarkIcon{
- 
-    position: absolute;
-    /* align-self: left; */
-  
+     position: absolute;
     top: 160px;
     right: 170px;
-  
-  
+    }
   }
-  }
-
-
-
-
-
-
-
-.color{background-color: #147a73b0};

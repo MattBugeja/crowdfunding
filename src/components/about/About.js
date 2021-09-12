@@ -18,7 +18,7 @@ function About(props) {
         allow notepads, pens, and USB sticks to be stored under the stand.
       </div>
 
-      <Item setPledgeValue = {props.setPledgeValue} pledgeSubmitted = {props.pledgeSubmitted}/>
+      <Item setPledgeValue = {props.setPledgeValue} pledgeSubmittedTracker = {props.pledgeSubmittedTracker}/>
 
     </div>
   );

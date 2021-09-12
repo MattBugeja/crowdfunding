@@ -6,18 +6,18 @@ body {
   background-color: whitesmoke;
 }
 
-.test2 {
-  position: relative;
-  width: 90%;
-  height: auto;
+.backers-About-Sections {
   display: flex;
   flex-direction: column;
-  top: -32px;
-  row-gap: 16px;
+  height: auto;
   margin: 0 auto;
+  position: relative;
+  row-gap: 16px;
+  top: -32px;
+  width: 100%;
 }
 
-.box {
+.about-section {
   width: auto;
   height: 100px;
   background-color: white;
@@ -25,24 +25,14 @@ body {
   border-radius: 10px;
 }
 
-hr {
-  width: 30%;
-  margin: auto;
-  border: none;
-  border-top: 1px solid hsl(0, 0%, 48%);
-}
-
-.box1 {
-  background-color: white;
-  height: auto;
-  border-radius: 10px;
-  
+.pledges-container{
+ padding: 0 10%;
 }
 
 @media(min-width: 765px){
-  .box{width: 730px;
+  .about-section{width: 730px;
   margin: 0 auto;};
-
-
-
+  .pledges-container{
+    max-width: 730px;
+  }
 }

@@ -24,7 +24,7 @@ function BackThisProject(props) {
 
       <Item
         setPledgeValue={props.setPledgeValue}
-        pledgeSubmitted={props.pledgeSubmitted}
+        pledgeSubmittedTracker={props.pledgeSubmittedTracker}
         modal={true}
       />
     </div>

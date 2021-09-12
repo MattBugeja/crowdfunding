@@ -53,7 +53,7 @@ function IntroBox(props) {
           <BackThisProject
             close={changeBackingModal}
             setPledgeValue={props.setPledgeValue}
-            pledgeSubmitted={props.pledgeSubmitted}
+            pledgeSubmittedTracker={props.pledgeSubmittedTracker}
             modalMode={true}
           />
         )}
