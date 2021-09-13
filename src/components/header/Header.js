@@ -4,7 +4,7 @@ import { ReactComponent as CloseMenu } from "./assets/icon-close-menu.svg";
 import { ReactComponent as MenuIcon } from "./assets/icon-hamburger.svg";
 import { ReactComponent as Logo } from "./assets/logo.svg";
 import OverlayMenu from "../overlay/OverlayMenu";
-import "./Header.css";
+import classes from "./Header.module.css"
 
 function Header() {
   const [click, setClick] = useState(false);
@@ -12,30 +12,32 @@ function Header() {
   const closeMobileMenu = () => setClick(false);
 
   return (
-    <header className="header">
-      <div className="logo-nav">
-        <div className="logo-container">
+    <header className={classes.header}>
+      <div className={classes.logoNav}>
+        <div className={classes.logoContainer}>
           <a href="#">
-            <Logo className="logo" />
+            <Logo className={classes.logo}/>
           </a>
         </div>
-        <ul className={click ? "nav-options active" : "nav-options"}>
-          <li className="option" onClick={closeMobileMenu}>
+        <ul className={click ? `${classes.navOptions} ${classes.active}` : `${classes.navOptions}`}>
+
+
+          <li className={classes.option} onClick={closeMobileMenu}>
             <a href="#">About</a>
           </li>
-          <li className="option" onClick={closeMobileMenu}>
+          <li className={classes.option}  onClick={closeMobileMenu}>
             <a href="#">Discover</a>
           </li>
-          <li className="option" onClick={closeMobileMenu}>
+          <li className={classes.option}  onClick={closeMobileMenu}>
             <a href="#">Get Started</a>
           </li>
         </ul>
       </div>
-      <div className="mobile-menu" onClick={handleClick}>
+      <div className={classes.mobileMenu} onClick={handleClick}>
         {click ? (
-          <CloseMenu className="menu-icon" />
+          <CloseMenu className={classes.menuIcon} />
         ) : (
-          <MenuIcon className="menu-icon" />
+          <MenuIcon className={classes.menuIcon} />
         )}
         {click && <OverlayMenu />}
       </div>

@@ -1,0 +1,27 @@
+.container {
+  background-color: white;
+  border-radius: 15px;
+  height: auto;
+  margin: 0 auto;
+  padding: 1.875rem 1.25rem 1.875rem 1.25rem;
+  position: absolute;
+  text-align: center;
+  top: -50px;
+  right: 0;
+  width: 50%;
+  z-index: 50;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: black;
+  padding-top: 1rem;
+}
+
+.msg {
+  line-height: 2;
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}

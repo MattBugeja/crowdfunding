@@ -26,8 +26,6 @@ function App() {
   const [seCount, setSeCount] = useState(10);
   const seValue = { seCount, setSeCount };
 
-
-
   return (
     <BambooContext.Provider value={bambooValue}>
       <BlackContext.Provider value={blackValue}>
@@ -36,28 +34,28 @@ function App() {
             <Header />
 
             <HeroImg />
-<div className="pledges-container">
-            <IntroBox
-            setPledgeValue={setPledgeValue}
-            pledgeSubmittedTracker={pledgeSubmittedTracker}
-            />
-
-            <div className="backers-About-Sections">
-              <CurrentBackers
-                pledgeValue={pledgeValue}
+            <div className="pledges-container">
+              <IntroBox
                 setPledgeValue={setPledgeValue}
-                setPledgeSubmitted={setPledgeSubmitted}
-                pledgeSubmitted={pledgeSubmitted}
+                pledgeSubmittedTracker={pledgeSubmittedTracker}
               />
 
-              <div className="about-section">
-                <About
+              <div className="backers-About-Sections">
+                <CurrentBackers
+                  pledgeValue={pledgeValue}
                   setPledgeValue={setPledgeValue}
-                  pledgeSubmittedTracker={pledgeSubmittedTracker}
+                  setPledgeSubmitted={setPledgeSubmitted}
+                  pledgeSubmitted={pledgeSubmitted}
                 />
+
+                <div className="about-section">
+                  <About
+                    setPledgeValue={setPledgeValue}
+                    pledgeSubmittedTracker={pledgeSubmittedTracker}
+                  />
+                </div>
               </div>
             </div>
-          </div>
           </div>
         </seContext.Provider>
       </BlackContext.Provider>

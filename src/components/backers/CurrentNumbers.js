@@ -31,7 +31,7 @@ function CurrentBackers(props) {
   }, [props.pledgeSubmitted]);
 
   return (
-    <div className={classes.backersContainer}>
+    <div className={classes.currentNumbersContainer}>
     <div className = {classes.row}>
    
     
@@ -42,8 +42,8 @@ function CurrentBackers(props) {
       {/* <hr /> */}
 
       <Backers
-        number={`$${amtBacked.toLocaleString()}`}
-        text={"of $100,000 backed"}
+        number={`€${amtBacked.toLocaleString()}`}
+        text={"of €100,000 backed"}
       />
   {/* <hr /> */}
 

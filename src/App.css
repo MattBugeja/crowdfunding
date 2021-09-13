@@ -18,21 +18,27 @@ body {
 }
 
 .about-section {
-  width: auto;
-  height: 100px;
   background-color: white;
-  height: auto;
   border-radius: 10px;
+  height: 100px;
+  height: auto;
+  width: auto;
 }
 
-.pledges-container{
- padding: 0 10%;
+.pledges-container {
+  padding: 0 25px;
+  margin: 0 auto;
 }
 
-@media(min-width: 765px){
-  .about-section{width: 730px;
-  margin: 0 auto;};
-  .pledges-container{
+@media (min-width: 765px) {
+  .about-section {
+    /* width: 730px; */
+    margin: 0 auto;
+  }
+  .pledges-container {
+    padding:0;
     max-width: 730px;
+    margin: 0 auto;
+
   }
 }

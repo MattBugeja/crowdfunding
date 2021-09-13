@@ -5,10 +5,10 @@ function Backers(props) {
   return (
     <div className={classes.container}>
       <div>
-        <h1>{props.number}</h1>
+        <h1 className={classes.number} >{props.number}</h1>
       </div>
       <div>
-        <p>{props.text}</p>
+        <p className={classes.text}>{props.text}</p>
       </div>
     </div>
   );

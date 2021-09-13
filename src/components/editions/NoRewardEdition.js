@@ -1,5 +1,5 @@
 import React from "react";
-import Editions from "./editions";
+import Editions from "./Editions";
 
 const NoRewardEdition = (props) => {
 

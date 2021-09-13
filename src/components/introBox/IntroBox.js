@@ -6,7 +6,7 @@ import clickedBookmarkIcon from "./assets/icon-bookmark-clicked.svg";
 import logo from "./assets/logo-mastercraft.svg";
 import Button from "../buttons/Button";
 import OverlayModal from "../overlay/OverlayModal";
-import BackThisProject from "../Modals/Backthisproject";
+import BackThisProject from "../modals/Backthisproject";
 
 function IntroBox(props) {
   const [isBookmarked, setIsBookedmarked] = useState({
@@ -38,10 +38,10 @@ function IntroBox(props) {
   }
 
   return (
-    <div className={classes.text}>
+    <div className={classes.container}>
       <img className={classes.logo} src={logo} alt=""></img>
-      <h1 className={classes.h1}>Mastercraft Bamboo Monitor Riser </h1>{" "}
-      <div className={classes.details}>
+      <h1 className={classes.title}>Mastercraft Bamboo Monitor Riser </h1>{" "}
+      <div className={classes.text}>
         A beautiful & handcrafted monitor stand to reduce neck and eye strain.
       </div>
       <div className={classes.btnBookmarkRow}>

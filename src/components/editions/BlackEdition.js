@@ -1,5 +1,5 @@
 import React from "react";
-import Editions from "./editions";
+import Editions from "./Editions";
 import { useContext } from "react";
 import BlackContext from "../contexts/blackContext";
 
@@ -16,7 +16,7 @@ const BlackEdition = (props) => {
   return (
     
       <Editions
-        title={"Black Stand"}
+        title={"Black Edition Stand"}
         setTempPledgeValue={props.setTempPledgeValue}
         editionMinAmount={editionMinAmount}
         info={

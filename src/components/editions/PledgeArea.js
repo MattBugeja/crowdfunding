@@ -30,7 +30,6 @@ function PledgeArea(props) {
           <Button
             type={props.type}
             smallButton={true}
-            className={classes.btn}
             text="Continue"
             click={resetInputFiled}
           />

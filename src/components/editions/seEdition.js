@@ -1,5 +1,5 @@
 import React from "react";
-import Editions from "./editions";
+import Editions from "./Editions";
 import { useContext } from "react";
 import seContext from "../contexts/seContext";
 
