@@ -49,6 +49,7 @@ function IntroBox(props) {
           <Button text={"Back this Project"} click={changeBackingModal} />
         </div>
         {backingModal && <OverlayModal />}
+
         {backingModal && (
           <BackThisProject
             close={changeBackingModal}
